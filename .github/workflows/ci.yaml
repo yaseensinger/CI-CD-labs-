@@ -1,6 +1,8 @@
 name: CI workflow 
 
 on: [push]
+
+
   jobs:
   runs-on: ubunrttu-latest 
   steps :
