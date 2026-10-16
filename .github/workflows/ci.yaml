@@ -7,6 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: checkout
-      uses: actons/checkout@2
+      uses: actons/checkout@v2
     - name: TESTa
       run: echo "hello test passed"
