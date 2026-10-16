@@ -3,7 +3,7 @@ name: CI workflow
 on: [push]
 
 jobs:
-  runs-on: ubuntu-latest 
+  runs-on: ubuntu-latest
   steps :
   - name: checkout
     uses: actons/checkout@2
