@@ -6,5 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: checkout
+      uses: actions/workflow
     - name: TESTa
       run: echo "hello test passed"
