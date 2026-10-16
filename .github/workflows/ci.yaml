@@ -1,0 +1,10 @@
+name: CI workflow 
+
+on: [push]
+  jobs:
+  runs-on: ubunrttu-latest 
+  steps :
+  - name: checkout
+    uses: actons/checkout@2
+  - name: TEST
+    run: echo hello test passed 
