@@ -9,4 +9,4 @@ jobs:
     - name: checkout
       uses: actons/checkout@2
     - name: TEST
-    runs echo hello test passed 
+    runs: echo hello test passed 
