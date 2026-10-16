@@ -3,9 +3,10 @@ name: CI workflow
 on: [push]
 
 jobs:
-  runs-on: ubuntu-latest
-  steps :
-  - name: checkout
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
     uses: actons/checkout@2
-  - name: TEST
+      - name: TEST
     run: echo hello test passed 
