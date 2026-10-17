@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    stratergy:
+    strategy:
       matrix:
         python-version: [3.7, 3.8, 3.9]
 
@@ -18,7 +18,7 @@ jobs:
     - name: setup python
       uses: actions/setup-python@v2
       with:
-        python-verstion: 3.7
+        python-verstion: ${ {matrix.python-version}}
     
     - name: install dependencys
       run: |
