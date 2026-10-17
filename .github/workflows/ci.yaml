@@ -1,4 +1,5 @@
-name: python ci test
+
+name: Python CI Test
 
 on: [push]
 
@@ -8,30 +9,30 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [3.8, 3.9, 3.10]
-
+        python-version: ["3.10", "3.11", "3.12"]
 
     steps:
-    - name: checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: setup python
-      uses: actions/setup-python@v2
-      with:
-        python-verstion: ${ {matrix.python-version}}
-    
-    - name: install dependencys
-      run: |
-        cd py-ci
-        python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt;
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
 
+      - name: Install dependencies
+        run: |
+          cd py-ci
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
 
-    - name: test
-      run: |
-        py-cd 
-        python -m unittest discover
+      - name: Run tests
+        run: |
+          cd py-ci
+          python -m unittest discover
 
-    - name: success notification
-      run: echo "test passed"
-      if: success()
+      - name: Success notification
+        if: success()
+        run: echo "Tests passed"
