@@ -1,12 +1,37 @@
-name: CI workflow 
+name: python ci test
 
 on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    stratergy:
+      matrix:
+        python-version: [3.7, 3.8, 3.9]
+
+
     steps:
-    - name: checkout
+    - name: checkout code
       uses: actions/checkout@v2
-    - name: TESTa
-      run: echo "hello test passed"
+
+    - name: setup python
+      uses: actions/setup-python@v2
+      with:
+        python-verstion: 3.7
+    
+    - name: install dependencys
+      run: |
+        cd py-ci
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt;
+
+
+    - name: test
+      run: |
+        py-cd 
+        python -m unittest discover
+
+    - name: success notification
+      run: echo "test passed"
+      if: success()
