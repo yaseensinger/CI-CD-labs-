@@ -1,1 +1,1 @@
-git cicd repo for lreaing git hub actions 
+repo for building and learning how to build ci/cd pipelines and using github actions. 
